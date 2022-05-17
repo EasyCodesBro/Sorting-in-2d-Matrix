@@ -1,0 +1,67 @@
+public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Row And Column length");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int arr_length = a * b;
+        int arr1[] = new int[arr_length];
+        int arr[][] = new int[a][b];
+
+        //Taking input in array
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < b; j++) {
+                System.out.print("arr[" + i + "]" + "[" + j + "]= ");
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        //Diplaying 2d array
+        System.out.println("Your Unsorted Matrix:-");
+        for (int i = 0; i < a; i++) {
+            System.out.print("[");
+            for (int j = 0; j < b; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.print("]");
+            System.out.println();
+        }
+        int k = 0;
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < b; j++) {
+                arr1[k] = arr[i][j];
+                k++;
+            }
+        }
+
+        for (int i=0;i<arr1.length;i++)
+        {
+            for (int j=0;j<arr1.length;j++)
+            {
+                if (arr1[i]<arr1[j])
+                {
+                    int tempo = arr1[i];
+                    arr1[i] = arr1[j];
+                    arr1[j] = tempo;
+                }
+            }
+        }
+
+        int arr2[][] = new int[a][b];
+        int h=0;
+        for (int i=0;i<a;i++)
+        {
+            for (int j=0;j<b;j++)
+            {
+                arr2[i][j] = arr1[h];
+                h++;
+            }
+        }
+        System.out.println("Your Sorted 2d Matrix:-");
+        for (int i = 0; i < a; i++) {
+            System.out.print("[");
+            for (int j = 0; j < b; j++) {
+                System.out.print(arr2[i][j] + " ");
+            }
+            System.out.print("]");
+            System.out.println();
+        }
